@@ -4,7 +4,7 @@ function refreshStores() {
 
   // Clear the range from A2:B to the last row, as well as any formatting
   var lastRow = sheet.getLastRow();
-  sheet.getRange("A2:B" + lastRow).clear().setFontFamily('Century Gothic').setFontSize(9);
+  sheet.getRange("A2:A" + lastRow).clear().setFontFamily('Century Gothic').setFontSize(9);
 
   try {
     const rows = getStores();

@@ -1,29 +1,35 @@
 {
   "timeZone": "Asia/Manila",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
   "dependencies": {
     "enabledAdvancedServices": [
       {
         "userSymbol": "BigQuery",
-        "version": "v2",
-        "serviceId": "bigquery"
+        "serviceId": "bigquery",
+        "version": "v2"
       },
       {
         "userSymbol": "Drive",
-        "version": "v3",
-        "serviceId": "drive"
+        "serviceId": "drive",
+        "version": "v3"
       }
     ],
     "libraries": [
       {
         "userSymbol": "GDriveFilesAPI",
-        "version": "0",
         "libraryId": "1lfcUHwvEZMxcITSwZSL-chl12AbTISsgRJyoiRT_oxdYXyyU9KXzTmoe",
+        "version": "0",
+        "developmentMode": true
+      },
+      {
+        "userSymbol": "PayboxReportProcessor",
+        "version": "0",
+        "libraryId": "10MooY7ZCKDsZhInB0gODmUEgUaW5zNaG4P3EeZnLGFCVWZLVt4CWxHwm",
         "developmentMode": true
       }
     ]
   },
-  "exceptionLogging": "STACKDRIVER",
-  "runtimeVersion": "V8",
   "webapp": {
     "executeAs": "USER_DEPLOYING",
     "access": "DOMAIN"

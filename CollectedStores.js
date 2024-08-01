@@ -11,11 +11,11 @@ function collectedStores() {
  ,count
  ,collector_name 
 from ms-paybox-prod-1.pldtsmart.collections 
-where date(created_at) >= DATE(CURRENT_DATE())-3 and date(created_at) <= DATE(CURRENT_DATE())
+where date(created_at) >= DATE(CURRENT_DATE())-1 and date(created_at) <= DATE(CURRENT_DATE())
 order by created_at desc
     `;
 
-  // Logger.log(query);
+  Logger.log(query);
 
   var queryResult = executeQueryAndWait(query);
 

@@ -49,7 +49,7 @@ function populateSheet(trnDate, trnTime) {
 
 function getStores() {
   const query = `
-    SELECT machine_name, CONCAT(servicing_bank, ' - ', dpu_frequency) AS servicing_bank
+    SELECT machine_name
 FROM \`ms-paybox-prod-1.pldtsmart.machines\`
 WHERE status = TRUE
   `;
@@ -89,4 +89,39 @@ function formatDate(dateString) {
   const month = ('0' + (date.getMonth() + 1)).slice(-2);
   const day = ('0' + date.getDate()).slice(-2);
   return `${year}-${month}-${day}`;
+}
+
+function breakdownDateTime(datetimeStr) {
+  if (datetimeStr.length !== 12) {
+    throw new Error('Invalid datetime string format. Expected format: YYYYMMDDHHMM');
+  }
+  
+  var year = datetimeStr.substring(0, 4);
+  var month = datetimeStr.substring(4, 6);
+  var day = datetimeStr.substring(6, 8);
+  var hour = datetimeStr.substring(8, 10);
+  var minute = datetimeStr.substring(10, 12);
+  
+  return {
+    year: parseInt(year, 10),
+    month: parseInt(month, 10),
+    day: parseInt(day, 10),
+    hour: parseInt(hour, 10),
+    minute: parseInt(minute, 10)
+  };
+}
+
+function extractNumbersFromText(text) {
+  // Define a regular expression to match sequences of digits
+  var regex = /\d+/g;
+  
+  // Find all matches in the text
+  var matches = text.match(regex);
+  
+  // Convert matches to numbers
+  var numbers = matches.map(function(match) {
+    return parseInt(match, 10);
+  });
+  
+  return numbers;
 }

@@ -1,1 +1,0 @@
-# paybox-collection-monitoring
